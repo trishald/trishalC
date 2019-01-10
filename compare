@@ -19,7 +19,7 @@ return min;
 int output(int a,int b,int c)
 {
         printf("The minimum of %d and %d is %d\n",a,b,c);
-        return min;
+        return c ;
 }
 int main()
 {
