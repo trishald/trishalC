@@ -1,0 +1,30 @@
+#include<stdio.h>
+int input(int *a, int *b)
+{
+printf("Enter first number\n");
+scanf("%d",a);
+printf("Enter second number\n");
+scanf("%d",b);
+return 0;
+}
+int compute(int a,int b)
+{
+        int min;
+if(a>b)
+        min=b;
+else
+        min=a;
+return min;
+}
+int output(int a,int b,int c)
+{
+        printf("The minimum of %d and %d is %d",a,b,c);
+        return 0;
+}
+int main()
+{
+        input(&a,&b);
+        min=compute(a,b);
+        output(a,b,min);
+        return 0;
+}
