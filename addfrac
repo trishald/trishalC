@@ -1,0 +1,38 @@
+#include<stdio.h>
+typedef struct Frac
+{
+        int num;
+        int den;
+}frac;
+int input( frac *f1,frac *f2)
+{
+        printf("Enter the numerator of the first fraction \n");
+        scanf("%d",&f1->num);
+        printf("Enter the denominator of the first fraction\n");
+        scanf("%d",&f1->den);
+        printf("Enter the numerator of the second fraction \n");
+        scanf("%d",&f2->num);
+        printf("Enter the denominator of the second fraction\n");
+        scanf("%d",&f2->den);
+        return 0;
+}
+int compute(frac f1,frac f2,frac *res)
+{
+
+        res->num=(f1.num*f2.den)+(f2.num*f1.den);
+        res->den=f1.den*f2.den;
+        return 0;
+}
+int output(frac f1,frac f2,frac res)
+{
+        printf("The sum of %d/%d + %d/%d is %d/%d\n",f1.num,f1.den,f2.num,f2.den,res.num,res.den);
+        return 0;
+}
+int  main()
+{
+        frac f1, f2,res;
+        input(&f1,&f2);
+        compute(f1,f2,&res);
+        output(f1,f2,res);
+        return 0;
+  }
