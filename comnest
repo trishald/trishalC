@@ -1,0 +1,41 @@
+#include<stdio.h>
+ int input(int *a,int *b,int *c)
+ {
+  printf("Enter a\n");
+  scanf("%d",a);
+  printf("Enter b\n");
+  scanf("%d",b);
+  printf("Enter c\n");
+  scanf("%c",c);
+ }
+  int compute(int a,int ,int c)
+ {
+  if(a<b)
+  {
+   if(a<c)
+   return a;
+   }
+  if(b<c)
+   {
+   if(b<a)
+   return b;
+   }
+  if(c<a)
+  {
+  if(c<b)
+  return c;
+  }
+ }
+ int output(int a,int b,int c,int min)
+ {
+  printf("The minimum of %d,%d and %d is %d",a,b,c,min);
+  return 0;
+  }
+  void main()
+  {
+  int a,b,c,min;
+  input(&a,&b,&c);
+  compute(a,b,c);
+  output(a,b,c,min);
+  }
+ 
