@@ -11,12 +11,10 @@ int input(int *a,int *b,int *c)
 }
 int compute(int a,int b,int c)
 {
-        if((a<b)&(a<c))
-                return a;
-        else if((b<a)&&(b<c))
-                return b;
-        else if((c<a)&&(c<b))
-                return c;
+int temp,min;
+temp=(a<b)?a:b;
+min=(temp<c)?temp:c;
+return min;
 }
 int output(int a,int b,int c,int min)
 {
@@ -32,4 +30,3 @@ void main()
         output(a,b,c,min);
 
 }
-
