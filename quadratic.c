@@ -30,7 +30,24 @@ else if(d1>0)
         sol[2]=(-b-d1)/(2*a);
 }
 else if(d1<0)
- {
+{
+        c1->real=(b)/(2*a);
+        c1->imag=(d1)/(2*a);
+}
+return 0;
+}
+float output(float sol[],comp c1,float d)
+{
+        if(d==0)
+        {
+                printf("The solution is %f \n",sol[0]);
+        }
+        else if(d>0)
+        {
+                printf("The solutions are %f and %f \n",sol[1],sol[2]);
+        }
+        else if(d<0)
+        {
                 printf("The solutions are imaginary\n");
                 printf("%f+%f and %f-%f",c1.real,c1.imag,c1.real,c1.imag);
         }
@@ -43,4 +60,3 @@ void main()
         compute(a,b,c,&d,sol,&c1);
         output(sol,c1,d);
 }
-                                                                                                                    1,1           Top
