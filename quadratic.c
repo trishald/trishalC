@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<math.h>
 typedef struct complex
@@ -15,7 +16,7 @@ float input(float *a,float *b,float *c)
         scanf("%f",c);
         return 0;
 }
-float compute(float a,float b,float c,float *d,comp *c1)
+float compute(float a,float b,float c,float *d,comp *c1,comp *c2)
 {
 float d1;
 *d=((b*b)-(4*a*c));
@@ -36,7 +37,7 @@ else if(d1<0)
 }
 return 0;
 }
-float output(comp c1,float d)
+float output(comp c1,comp c2,float d)
 {
         if(d==0)
         {
@@ -46,7 +47,7 @@ float output(comp c1,float d)
         else if(d>0)
         {
                 printf("The solutions are real and distinct\n");
-                printf("The solutions are %f and %f \n",c1.real,c1.imag);
+                printf("The solutions are %f and %f \n",c1.real,c2.real);
         }
         else if(d<0)
         {
@@ -57,8 +58,8 @@ float output(comp c1,float d)
 }
 void main()
 {
-        float a,b,c,d; comp c1;
+        float a,b,c,d; comp c1,c2;
         input(&a,&b,&c);
-        compute(a,b,c,&d,&c1);
-        output(c1,d);
+        compute(a,b,c,&d,&c1,&c2);
+        output(c1,c2,d);
 }
