@@ -15,48 +15,50 @@ float input(float *a,float *b,float *c)
         scanf("%f",c);
         return 0;
 }
-float compute(float a,float b,float c,float *d,float sol[],comp *c1)
+float compute(float a,float b,float c,float *d,comp *c1)
 {
 float d1;
-*d=sqrt((b*b)-(4*a*c));
+*d=((b*b)-(4*a*c));
 d1=*d;
 if(d1==0)
 {
-        sol[0]=(-b)/(2*a);
+        c1->real=(-b)/(2*a);
 }
 else if(d1>0)
 {
-        sol[1]=(-b+d1)/(2*a);
-        sol[2]=(-b-d1)/(2*a);
+       c1->real=(-b+sqrt(d1))/(2*a);
+       c1->real=(-b-sqrt(d1))/(2*a);
 }
 else if(d1<0)
 {
         c1->real=(b)/(2*a);
-        c1->imag=(d1)/(2*a);
+        c1->imag=fabs(d1)/(2*a);
 }
 return 0;
 }
-float output(float sol[],comp c1,float d)
+float output(comp c1,float d)
 {
         if(d==0)
         {
-                printf("The solution is %f \n",sol[0]);
+              printf("Solution is real and equal\n");  
+              printf("The solution is %f \n",c1.real);
         }
         else if(d>0)
         {
-                printf("The solutions are %f and %f \n",sol[1],sol[2]);
+                printf("The solutions are real and distinct\n");
+                printf("The solutions are %f and %f \n",c1.real,c1.imag);
         }
         else if(d<0)
         {
                 printf("The solutions are imaginary\n");
-                printf("%f+%f and %f-%f",c1.real,c1.imag,c1.real,c1.imag);
+                printf("%.1f+%.1fi and %.1f-%.1fi",c1.real,c1.imag,c1.real,c1.imag);
         }
         return 0;
 }
 void main()
 {
-        float a,b,c,sol[5],d; comp c1;
+        float a,b,c,d; comp c1;
         input(&a,&b,&c);
-        compute(a,b,c,&d,sol,&c1);
-        output(sol,c1,d);
+        compute(a,b,c,&d,&c1);
+        output(c1,d);
 }
