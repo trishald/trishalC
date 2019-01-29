@@ -21,10 +21,15 @@ float compute(int a,int b,int c,int *d,float complex *z1,float complex *z2)
 		*z1=(-b)/(2*a);
 		*z2=*z1;
 	}
-	else
+	else if(d<0)
 	{
-		*z1=((-b)+(csqrt(d1))/(2*a));
-		*z2=((-b)-(csqrt(d1))/(2*a));
+		*z1=((-b)/(2*a))+((csqrt(d1))/(2*a));
+		*z2=((-b)/(2*a))-((csqrt(d1))/(2*a));
+	}
+	else if(d>0)
+	{
+		*z1=((-b)+csqrt(d1))/(2*a);
+		*z2=((-b)-csqrt(d1))/(2*a);
 	}
 	*d=d1;
 }
@@ -54,4 +59,5 @@ void main()
 	compute(a,b,c,&d,&z1,&z2);
 	output(d,z1,z2);
 }
+
 
