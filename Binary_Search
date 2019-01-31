@@ -1,0 +1,59 @@
+#include<stdio.h>
+void input(int a[],int *n,int *s)
+{
+	int i;
+	printf("Enter the size\n");
+	scanf("%d",n);
+	printf("enter the array elements \n");
+	for(i=0;i<*n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("Enter the search element \n");
+	scanf("%d",s);
+}
+void compute(int a[],int s,int n,int *pos)
+{
+	int ul,ll,mid;*pos=-1;
+	ul=n-1;
+	ll=0;
+	while(ll<=ul)
+	{
+		mid=(ul+ll)/2;
+		if(a[mid]==s)
+		{
+			*pos=mid;
+break;
+	        }
+		else if(a[mid]<s)
+		{
+			ll=mid+1;
+		}
+		else
+		{
+			ul=mid-1;
+		}
+		
+	}
+
+}
+void output(int s,int pos)
+{
+	if(pos>=0)
+	{
+		printf("%d present at position %d \n",s,++pos);
+	}
+	else
+	{
+		printf("element not found \n");
+	}
+}
+void main()
+{
+
+
+	int a[10],pos,s,n;
+	input(a,&n,&s);
+	compute(a,s,n,&pos);
+	output(s,pos);
+}
