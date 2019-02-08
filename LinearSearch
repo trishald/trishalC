@@ -1,0 +1,47 @@
+#include<stdio.h>
+void input(int *s,int *n,int a[])
+{
+	printf("Enter the array size\n");
+	scanf("%d",n);
+	printf("Enter the array elements\n");
+	for(int i=0;i<*n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("Enter the search element\n");
+	scanf("%d",s);
+}
+int compute(int s,int n,int a[])
+{
+	
+	int pos=0;
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]==s)
+		{
+			
+			pos=i;
+		        break;
+		}
+		return pos;
+	}
+}
+void output(int s,int pos)
+{
+	if(pos>0)
+	{
+		printf("Element %d is present at %d\n",s,pos);
+	}
+	else if(pos<0)
+	{ 
+		
+		printf("element not found\n");
+	}
+}
+void main()
+{
+	int s,n,pos,a[10];
+	input(&s,&n,a);
+	pos=compute(s,n,a);
+	output(s,pos);
+}
